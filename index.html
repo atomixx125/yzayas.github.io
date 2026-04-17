@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yeshua Zayas | Portfolio</title>
+    <style>
+        /* CSS Variables for easy B/W theme management */
+        :root {
+            --bg-color: #050505;
+            --text-main: #f3f3f3;
+            --text-muted: #888888;
+            --border-color: #333333;
+            --accent: #ffffff;
+        }
+
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            padding: 0 2rem;
+        }
+
+        /* Typography */
+        /* Importing Google Fonts: A clean Sans-serif and a Monospace for the tech vibe */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Mono&display=swap');
+
+        .mono {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 600;
+            letter-spacing: -2px;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 400;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+
+        a:hover {
+            border-bottom: 1px solid var(--accent);
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 10vh 0;
+        }
+
+        /* Hero Section */
+        header {
+            margin-bottom: 15vh;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+        }
+
+        /* Grid for Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 10vh;
+        }
+
+        /* Project Cards */
+        .card {
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            transition: all 0.3s ease;
+            background: #0a0a0a;
+        }
+
+        .card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255,255,255,0.05);
+        }
+
+        .card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <p class="mono">Initializing sequence...</p>
+            <h1>Yeshua Zayas</h1>
+            <p class="subtitle">Cybersecurity student @ SIUC. Passionate about learning new things of all kinds. Various Interests.</p>
+        </header>
+
+        <section id="work">
+            <h2><span class="mono">01.</span> Selected Works</h2>
+            <div class="projects-grid">
+                
+                <div class="card">
+                    <h3>Encrypted Communications Project</h3>
+                    <p>An encrypted communications project using python.</p>
+                    <a href="#" class="mono">View Source -></a>
+                </div>
+
+                <div class="card">
+                    <h3>Terminal V2</h3>
+                    <p>A command-line utility tool built in Python to automate daily workflow tasks and git branch management.</p>
+                    <a href="#" class="mono">View Source -></a>
+                </div>
+
+            </div>
+        </section>
+
+        <footer>
+            <div>
+                <p class="mono">Contact / Links</p>
+                <a href="mailto:yzayas125@gmail.com">Email</a> &nbsp;|&nbsp;
+                <a href="https://github.com/atomixx125">GitHub</a> &nbsp;|&nbsp;
+                <a href="https://www.linkedin.com/in/yeshua-zayas-30247635a/">LinkedIn</a>
+            </div>
+            <div>
+                <a href="resume.pdf" class="mono" style="border: 1px solid white; padding: 0.5rem 1rem;">[ Download Resume ]</a>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>
