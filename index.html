@@ -60,18 +60,20 @@
 
         .profile-img {
             width: 100%;
-            aspect-ratio: 1 / 1; /* Makes it a perfect square */
+            aspect-ratio: 1 / 1;
             object-fit: cover;
             border: 1px solid var(--border-color);
-            filter: grayscale(100%); /* B/W by default */
-            transition: all 0.5s ease;
+            /* REMOVED: filter: grayscale(100%); */
+            /* ADDED: A slight transition for the border and shadow */
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         .profile-img:hover {
-            filter: grayscale(0%); /* Color on hover */
             border-color: var(--accent);
+            /* This adds a professional "lift" and glow when hovered */
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
         }
-
         /* Decoration behind photo for a modern look */
         .photo-container::after {
             content: "";
