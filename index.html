@@ -3,89 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yeshua Zayas | Portfolio</title>
+    <title>Your Name | Portfolio</title>
     <style>
-        /* CSS Variables for easy B/W theme management */
         :root {
             --bg-color: #050505;
             --text-main: #f3f3f3;
             --text-muted: #888888;
-            --border-color: #333333;
+            --border-color: #222222;
             --accent: #ffffff;
         }
 
-        /* Reset and Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             background-color: var(--bg-color);
             color: var(--text-main);
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: 'Inter', -apple-system, sans-serif;
             line-height: 1.6;
             padding: 0 2rem;
         }
 
-        /* Typography */
-        /* Importing Google Fonts: A clean Sans-serif and a Monospace for the tech vibe */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Mono&display=swap');
 
-        .mono {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        h1 {
-            font-size: 4rem;
-            font-weight: 600;
-            letter-spacing: -2px;
-            margin-bottom: 1rem;
-        }
-
-        h2 {
-            font-size: 2rem;
-            font-weight: 400;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 0.5rem;
-            margin-bottom: 2rem;
-        }
-
-        a {
-            color: var(--accent);
-            text-decoration: none;
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.3s ease;
-        }
-
-        a:hover {
-            border-bottom: 1px solid var(--accent);
-        }
-
-        /* Layout */
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 10vh 0;
         }
 
-        /* Hero Section */
+        /* --- NEW HERO SECTION WITH PHOTO --- */
         header {
-            margin-bottom: 15vh;
+            display: grid;
+            grid-template-columns: 1fr 350px; /* Text takes more space, Photo is 350px */
+            gap: 4rem;
+            align-items: center;
+            padding: 15vh 0;
         }
 
-        .subtitle {
+        .hero-text h1 {
+            font-size: clamp(3rem, 10vw, 5rem);
+            font-weight: 600;
+            letter-spacing: -3px;
+            line-height: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text p {
             font-size: 1.2rem;
             color: var(--text-muted);
-            max-width: 600px;
+            max-width: 500px;
         }
 
-        /* Grid for Projects */
+        .photo-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .profile-img {
+            width: 100%;
+            aspect-ratio: 1 / 1; /* Makes it a perfect square */
+            object-fit: cover;
+            border: 1px solid var(--border-color);
+            filter: grayscale(100%); /* B/W by default */
+            transition: all 0.5s ease;
+        }
+
+        .profile-img:hover {
+            filter: grayscale(0%); /* Color on hover */
+            border-color: var(--accent);
+        }
+
+        /* Decoration behind photo for a modern look */
+        .photo-container::after {
+            content: "";
+            position: absolute;
+            top: 20px;
+            right: -20px;
+            width: 100%;
+            height: 100%;
+            border: 1px solid var(--border-color);
+            z-index: -1;
+        }
+
+        /* --- PROJECTS SECTION --- */
+        h2 {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1rem;
+        }
+
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -93,38 +103,32 @@
             margin-bottom: 10vh;
         }
 
-        /* Project Cards */
         .card {
             border: 1px solid var(--border-color);
-            padding: 2rem;
-            transition: all 0.3s ease;
+            padding: 2.5rem;
             background: #0a0a0a;
+            transition: 0.3s;
         }
 
-        .card:hover {
-            border-color: var(--accent);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(255,255,255,0.05);
-        }
+        .card:hover { border-color: var(--accent); transform: translateY(-5px); }
 
-        .card h3 {
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
+        .mono { font-family: 'Space Mono', monospace; font-size: 0.8rem; color: var(--text-muted); }
 
-        .card p {
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
-        }
-
-        /* Footer */
         footer {
             border-top: 1px solid var(--border-color);
-            padding-top: 2rem;
+            padding: 4rem 0;
             display: flex;
             justify-content: space-between;
-            align-items: center;
+        }
+
+        a { color: white; text-decoration: none; border-bottom: 1px solid #333; }
+        a:hover { border-color: white; }
+
+        /* Tablet/Mobile Fix */
+        @media (max-width: 850px) {
+            header { grid-template-columns: 1fr; text-align: center; }
+            .hero-text p { margin: 0 auto; }
+            .photo-container { width: 250px; margin: 0 auto; order: -1; }
         }
     </style>
 </head>
@@ -132,15 +136,20 @@
 
     <div class="container">
         <header>
-            <p class="mono">Initializing sequence...</p>
-            <h1>Yeshua Zayas</h1>
-            <p class="subtitle">Cybersecurity student @ SIUC. Passionate about learning new things of all kinds. Various Interests.</p>
+            <div class="hero-text">
+                <p class="mono" style="margin-bottom: 1rem;">// Portfolio 2026</p>
+                <h1>Yeshua Zayas</h1>
+                <p class="subtitle">Cybersecurity student @ SIUC. Passionate about learning new things of all kinds. Various Interests.</p>
+            </div>
+            
+            <div class="photo-container">
+                <img src="headshot.jpeg" alt="Yeshua Zayas" class="profile-img">
+            </div>
         </header>
 
-        <section id="work">
-            <h2><span class="mono">01.</span> Selected Works</h2>
+        <section>
+            <h2>Selected Work</h2>
             <div class="projects-grid">
-                
                 <div class="card">
                     <h3>Encrypted Communications Project</h3>
                     <p>An encrypted communications project using python.</p>
@@ -148,23 +157,20 @@
                 </div>
 
                 <div class="card">
-                    <h3>Terminal V2</h3>
-                    <p>A command-line utility tool built in Python to automate daily workflow tasks and git branch management.</p>
-                    <a href="#" class="mono">View Source -></a>
+                    <p class="mono">02.</p><br>
+                    <h3>Mycelial Neural Network</h3>
+                    <p>A Neuarl Network experiment made using Grok & Claude; inspired by the mycelial network of a mushroom.</p><br>
+                    <a href="#" class="mono">View Case Study -></a>
                 </div>
-
             </div>
         </section>
 
         <footer>
+            <div class="mono">Based in [Your City]</div>
             <div>
-                <p class="mono">Contact / Links</p>
-                <a href="mailto:yzayas125@gmail.com">Email</a> &nbsp;|&nbsp;
-                <a href="https://github.com/atomixx125">GitHub</a> &nbsp;|&nbsp;
-                <a href="https://www.linkedin.com/in/yeshua-zayas-30247635a/">LinkedIn</a>
-            </div>
-            <div>
-                <a href="resume.pdf" class="mono" style="border: 1px solid white; padding: 0.5rem 1rem;">[ Download Resume ]</a>
+                <a href="mailto:email@example.com" class="mono">Email</a> &nbsp;
+                <a href="#" class="mono">LinkedIn</a> &nbsp;
+                <a href="resume.pdf" class="mono" style="border: 1px solid white; padding: 5px 10px;">Download CV</a>
             </div>
         </footer>
     </div>
